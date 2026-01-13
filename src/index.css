@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+    --font-inter: "Inter", sans-serif;
+    --color-primary-light: #FFF7ED;
+    --color-primary: #FFEAD0;
+    --color-secondary: #FFDDB2;
+    --color-accent: #FF8C38;
+    --color-accent-light: #FFCC8D;
+
+}
+
+@layer base {
+    *,
+    *::after,
+    *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+    }
+
+    body {
+        font-family: var(--font-inter);
+        color: var(--text-gray-200);
+        line-height: 1.5;
+
+        min-height: 100vh;
+    }
+
+    /* typography */
+
+}
+
+@layer components {
+  .wrapper {
+    width: min(80%, 1200px);
+    margin: 0 auto;
+  }
+}
