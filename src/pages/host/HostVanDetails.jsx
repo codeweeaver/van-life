@@ -63,7 +63,7 @@ export default function HostVanDetails() {
 
   return loading ? (
     <div className="flex justify-center items-center h-[50vh]">
-      <PacmanLoader />
+      <PacmanLoader color="#FFEAD0" />
     </div>
   ) : (
     <section>
