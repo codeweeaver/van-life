@@ -79,12 +79,14 @@ createServer({
       email: "codeweeaver@gmail.com",
       password: "vanlife1995",
       name: "codeweeaver",
+      token: Math.random().toString(36).slice(2),
     });
     server.create("user", {
       id: "222",
       email: "p@p.com",
       password: "p222",
       name: "pablo samuel",
+      token: Math.random().toString(36).slice(2),
     });
   },
   //routes
@@ -131,7 +133,7 @@ createServer({
 
       // At the very least, don't send the password back to the client 😅
       foundUser.password = undefined;
-      foundUser.token = Math.random().toString(36).slice(2);
+
       return {
         user: foundUser,
       };

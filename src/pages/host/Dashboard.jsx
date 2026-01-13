@@ -12,7 +12,10 @@ export default function Dashboard() {
   }, []);
 
   const hostVansEl = vans.map((van) => (
-    <div className="p-3 my-6 bg-white rounded-sm shadow-sm flex justify-between items-center">
+    <div
+      key={van.id}
+      className="p-3 my-6 bg-white rounded-sm shadow-sm flex justify-between items-center"
+    >
       <div className="flex items-center gap-5" key={van.id}>
         <img
           className="w-[25%] rounded-sm"

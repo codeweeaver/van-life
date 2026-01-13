@@ -17,6 +17,7 @@ import Login from "./pages/Login.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import VanDetail from "./pages/vans/VanDetail.jsx";
 import Vans from "./pages/vans/Vans.jsx";
+import RequiresAuth from "./utils/RequiresAuth.jsx";
 
 export default function App() {
   return (
@@ -28,16 +29,18 @@ export default function App() {
           <Route path="vans" element={<Vans />} />
           <Route path="vans/:id" element={<VanDetail />} />
           <Route path="login" element={<Login />} />
-          <Route path="host" element={<HostLayout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="income" element={<Income />} />
-            <Route path="reviews" element={<Reviews />} />
-            <Route path="vans" element={<HostVans />} />{" "}
-            <Route path="vans/:id" element={<HostVanDetails />}>
-              {" "}
-              <Route index element={<HostVanInfo />} />{" "}
-              <Route path="pricing" element={<HostVanPricing />} />{" "}
-              <Route path="photos" element={<HostVanPhotos />} />
+          <Route element={<RequiresAuth />}>
+            <Route path="host" element={<HostLayout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="income" element={<Income />} />
+              <Route path="reviews" element={<Reviews />} />
+
+              <Route path="vans" element={<HostVans />} />
+              <Route path="vans/:id" element={<HostVanDetails />}>
+                <Route index element={<HostVanInfo />} />
+                <Route path="pricing" element={<HostVanPricing />} />
+                <Route path="photos" element={<HostVanPhotos />} />
+              </Route>
             </Route>
           </Route>
           <Route path="*" element={<NotFound />} />
