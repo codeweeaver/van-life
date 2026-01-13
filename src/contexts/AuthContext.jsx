@@ -28,7 +28,8 @@ const AuthProvider = ({ children }) => {
     }
 
     localStorage.setItem("user", JSON.stringify(data));
-    setUser(data);
+
+    setUser(data.user);
   }, []);
 
   const authValues = useMemo(

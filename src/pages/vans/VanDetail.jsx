@@ -44,6 +44,7 @@ export default function VanDetail() {
   return (
     <section className="py-10">
       <div className="wrapper">
+<<<<<<< HEAD
         <Link
           to={`..${search}`}
           relative="path"
@@ -52,6 +53,10 @@ export default function VanDetail() {
           &larr; back to{" "}
           {location.state.typeFilter ? `${location.state.typeFilter}` : "all"}{" "}
           vans
+=======
+        <Link to={`..${search}`} relative="path" className="block mb-10 text-sm font-semibold underline capitalize">
+          &larr; back to {location.state.typeFilter ? `${location.state.typeFilter}` : "all"} vans
+>>>>>>> bugfix-product-fetching
         </Link>
 
         {van && (
@@ -63,10 +68,17 @@ export default function VanDetail() {
                   van.type === "simple"
                     ? "bg-accent"
                     : van.type === "rugged"
+<<<<<<< HEAD
                     ? "bg-green-900"
                     : van.type === "luxury"
                     ? "bg-black"
                     : ""
+=======
+                      ? "bg-green-900"
+                      : van.type === "luxury"
+                        ? "bg-black"
+                        : ""
+>>>>>>> bugfix-product-fetching
                 } text-white py-2 px-4 rounded-sm capitalize hover:opacity-80 mb-6`}
               >
                 {van.type}

@@ -1,9 +1,10 @@
-import { Navigate, Outlet } from "react-router";
+import { Outlet } from "react-router";
 import BaseLink from "../components/base/BaseLink";
 import useAuth from "../hooks/useAuth";
 
 export default function HostLayout() {
   const { user } = useAuth();
+  console.log(user);
   return (
     <>
       <ul className="flex gap-5 py-10">
@@ -22,15 +23,7 @@ export default function HostLayout() {
           <BaseLink to="reviews">Reviews</BaseLink>
         </li>
       </ul>
-      {user ? (
-        <Outlet />
-      ) : (
-        <Navigate
-          to="/login"
-          state={{ message: "you must login first." }}
-          replace={true}
-        />
-      )}
+      <Outlet />
     </>
   );
 }

@@ -73,20 +73,23 @@ createServer({
       type: "rugged",
       hostId: "123",
     });
+    // list of users
     server.create("user", {
       id: "123",
       email: "codeweeaver@gmail.com",
       password: "vanlife1995",
       name: "codeweeaver",
+      token: Math.random().toString(36).slice(2),
     });
     server.create("user", {
       id: "222",
       email: "p@p.com",
       password: "p222",
       name: "pablo samuel",
+      token: Math.random().toString(36).slice(2),
     });
   },
-
+  //routes
   routes() {
     this.namespace = "api";
     this.logging = false;
@@ -104,8 +107,8 @@ createServer({
 
     this.get("/host/vans", (schema, request) => {
       // Hard-code the hostId for now
-      const id = request.params;
-      return schema.vans.where({ hostId: id });
+      // This was returning an empty object for the hostId
+      return schema.vans.where({ hostId: "123" });
     });
 
     this.get("/host/vans/:id", (schema, request) => {
@@ -130,9 +133,9 @@ createServer({
 
       // At the very least, don't send the password back to the client 😅
       foundUser.password = undefined;
+
       return {
         user: foundUser,
-        token: "Enjoy your pizza, here's your tokens.",
       };
     });
   },
